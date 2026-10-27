@@ -21,7 +21,7 @@ html, body {
     direction: rtl;
     text-align: right; /* Clean modern natural reading alignment */
     font-family: var(--novel-font-sans);
-    font-size: 1.15rem; /* Clean, highly legible UI size */
+    font-size: 1.5rem; /* Clean, highly legible UI size */
     line-height: 1.8;
     max-width: var(--content-max-width);
     margin: 0 auto;
