@@ -2,13 +2,12 @@
 title = "خبز السادسة"
 description = "رواية خبز السادسة"
 language = "ar"
-multilingual = false
+text-direction = "rtl"
 src = "src"
 
 [output.html]
 default-theme = "rust"
 preferred-dark-theme = "navy"
-text-direction = "rtl"
 additional-css = ["theme/custom.css"]
 no-section-label = true
 
