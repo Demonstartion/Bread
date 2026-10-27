@@ -6,6 +6,22 @@
     /* Modern Arabic UI font stack (Segoe UI, Tahoma, Arial, sans-serif) */
     --novel-font-sans: 'Segoe UI', Tahoma, Arial, 'Noto Sans Arabic', sans-serif;
     --content-max-width: 720px;
+
+    /* Mobile App Message Bubble Variables (Light Themes) */
+    --msg-bubble-bg: linear-gradient(135deg, #eff6ff 0%, #e0f2fe 100%);
+    --msg-bubble-border: rgba(37, 99, 235, 0.22);
+    --msg-sender-color: #1d4ed8;
+    --msg-text-color: #0f172a;
+    --msg-shadow: 0 3px 10px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+/* Dark Theme Support for mdBook (navy, coal, ayu) */
+.navy, .coal, .ayu {
+    --msg-bubble-bg: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    --msg-bubble-border: rgba(96, 165, 250, 0.28);
+    --msg-sender-color: #60a5fa;
+    --msg-text-color: #f1f5f9;
+    --msg-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
 }
 
 /* Force Right-to-Left layout and modern sans-serif UI typography */
@@ -55,6 +71,13 @@ html, body {
     border-bottom: 1px solid rgba(128, 128, 128, 0.2);
 }
 
+.content main h2 {
+    font-size: 1.4rem;
+    margin-top: 2.2rem;
+    margin-bottom: 1rem;
+    opacity: 0.85;
+}
+
 /* Novel Title Landing Page */
 .novel-title-page {
     min-height: 50vh;
@@ -98,23 +121,53 @@ html, body {
     user-select: none;
 }
 
-/* Text Messages / Quotes (Clean Chat / Card Look) */
+/* ==========================================================================
+   Mobile App Chat Messages Styling (Blockquotes)
+   ========================================================================== */
 .content main blockquote {
     direction: rtl;
     text-align: right;
-    margin: 0.8rem 0;
-    padding: 0.75rem 1rem;
-    border-right: none;
-    border-left: 4px solid #2563eb; /* Clean professional blue accent */
-    background-color: rgba(37, 99, 235, 0.04); /* Soft neutral blue tint */
-    border-radius: 0 8px 8px 0;
-    font-size: 1.05rem;
-    line-height: 1.6;
+    display: table; /* Shrink-wraps bubble width to fit short messages naturally */
+    max-width: 84%;
+    min-width: 150px;
+    margin: 0.55rem 0 0.55rem auto; /* Aligns chat bubbles cleanly on the right side in RTL */
+    padding: 0.7rem 1.05rem 0.75rem;
+    border: 1px solid var(--msg-bubble-border);
+    border-right: 4px solid var(--msg-sender-color);
+    border-left: none;
+    background: var(--msg-bubble-bg);
+    color: var(--msg-text-color);
+    border-radius: 18px 4px 18px 18px; /* Classic chat app bubble with top-right tail */
+    box-shadow: var(--msg-shadow);
+    font-size: 1.15rem;
+    line-height: 1.65;
+    position: relative;
+}
+
+/* Tighter vertical grouping when multiple chat messages follow one another */
+.content main blockquote + blockquote {
+    margin-top: 0.3rem;
 }
 
 .content main blockquote p {
-    margin-bottom: 0.3em;
+    margin-top: 0;
+    margin-bottom: 0.45em;
     text-align: right;
+}
+
+.content main blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+/* Style the sender name (e.g., **المرآة:** or **نادر:**) as a distinct app header label */
+.content main blockquote strong:first-child {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--msg-sender-color);
+    margin-bottom: 0.2rem;
+    padding-bottom: 0.15rem;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.12);
 }
 
 /* Sidebar Table of Contents */
