@@ -1,0 +1,19 @@
+[book]
+title = "خبز السادسة"
+description = "رواية خبز السادسة"
+language = "ar"
+multilingual = false
+src = "src"
+
+[output.html]
+default-theme = "rust"
+preferred-dark-theme = "navy"
+text-direction = "rtl"
+additional-css = ["theme/custom.css"]
+no-section-label = true
+
+[output.html.print]
+enable = true
+
+[output.html.search]
+enable = true
