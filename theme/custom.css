@@ -1,17 +1,17 @@
 /* ==========================================================================
-   خبز السادسة — Custom Arabic Novel Typography & RTL Styling for mdBook
+   خبز السادسة — Clean Modern Arabic UI Typography & Styling for mdBook
    ========================================================================== */
 
 :root {
-    --novel-font-serif: 'Amiri', 'Noto Naskh Arabic', 'Traditional Arabic', serif;
-    --novel-font-sans: 'Tajawal', 'Noto Naskh Arabic', sans-serif;
+    /* Modern Arabic UI font stack (Segoe UI, Tahoma, Arial, sans-serif) */
+    --novel-font-sans: 'Segoe UI', Tahoma, Arial, 'Noto Sans Arabic', sans-serif;
     --content-max-width: 720px;
 }
 
-/* Force Right-to-Left layout and smooth Arabic typography */
+/* Force Right-to-Left layout and modern sans-serif UI typography */
 html, body {
     direction: rtl;
-    font-family: var(--novel-font-serif);
+    font-family: var(--novel-font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -19,10 +19,10 @@ html, body {
 /* Main Reading Area */
 .content main {
     direction: rtl;
-    text-align: justify;
-    font-family: var(--novel-font-serif);
-    font-size: 1.5rem;
-    line-height: 2.05;
+    text-align: right; /* Clean modern natural reading alignment */
+    font-family: var(--novel-font-sans);
+    font-size: 1.15rem; /* Clean, highly legible UI size */
+    line-height: 1.8;
     max-width: var(--content-max-width);
     margin: 0 auto;
     padding: 1.5rem 1.25rem 4rem;
@@ -31,50 +31,32 @@ html, body {
 /* Paragraphs */
 .content main p {
     margin-top: 0;
-    margin-bottom: 1.35em;
-    text-align: justify;
-    text-justify: inter-word;
+    margin-bottom: 1.2em;
+    text-align: right;
 }
 
 /* Chapter & Section Headings */
 .content main h1,
 .content main h2,
 .content main h3 {
-    font-family: var(--novel-font-serif);
+    font-family: var(--novel-font-sans);
     font-weight: 700;
-    text-align: center;
-    line-height: 1.5;
-    margin-top: 2.2rem;
-    margin-bottom: 2.5rem;
+    text-align: right;
+    line-height: 1.4;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
     letter-spacing: 0;
+    color: inherit;
 }
 
 .content main h1 {
-    font-size: 2.2rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+    font-size: 1.8rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2);
 }
 
-/* Novel Title Landing Page (خبز السادسة) */
+/* Novel Title Landing Page */
 .novel-title-page {
-    min-height: 60vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: 2rem 0;
-}
-
-.novel-title-page h1 {
-    font-size: 3.4rem !important;
-    border-bottom: 2px solid rgba(128, 128, 128, 0.35) !important;
-    padding: 1.5rem 2.5rem !important;
-    margin: 0 !important;
-}
-
-/* Part Landing Pages (الجزء الأوّل، الثاني، الثالث، الرابع) */
-.part-title-page {
     min-height: 50vh;
     display: flex;
     flex-direction: column;
@@ -84,47 +66,58 @@ html, body {
     margin: 2rem 0;
 }
 
-.part-title-page h1 {
-    font-size: 2.6rem !important;
-    border-top: 1px solid rgba(128, 128, 128, 0.3);
-    border-bottom: 1px solid rgba(128, 128, 128, 0.3);
-    padding: 1.5rem 2rem !important;
+.novel-title-page h1 {
+    font-size: 2.8rem !important;
+    border-bottom: none !important;
+    padding: 1rem !important;
+    margin: 0 !important;
 }
 
-/* Scene Breaks (* and ٭ ٭ ٭) */
+/* Part Landing Pages */
+.part-title-page {
+    min-height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.part-title-page h1 {
+    font-size: 2.2rem !important;
+    border: none !important;
+}
+
+/* Scene Breaks */
 .scene-break {
     text-align: center;
-    font-size: 1.5rem;
-    margin: 2.4rem 0;
-    opacity: 0.75;
+    font-size: 1.2rem;
+    margin: 2rem 0;
+    opacity: 0.6;
     user-select: none;
-    letter-spacing: 0.25em;
 }
 
-/* Text Messages / Quotes Styling (الرسائل النصية والاقتباسات) */
+/* Text Messages / Quotes (Clean Chat / Card Look) */
 .content main blockquote {
     direction: rtl;
     text-align: right;
-    margin: 0.85rem 1.5rem 0.85rem 0.5rem;
-    padding: 0.65rem 1.25rem;
-    border-right: 3px solid rgba(140, 110, 80, 0.55);
-    border-left: none;
-    background-color: rgba(128, 128, 128, 0.06);
-    border-radius: 8px 0 0 8px;
-    font-size: 1.22rem;
-    line-height: 1.85;
+    margin: 0.8rem 0;
+    padding: 0.75rem 1rem;
+    border-right: none;
+    border-left: 4px solid #2563eb; /* Clean professional blue accent */
+    background-color: rgba(37, 99, 235, 0.04); /* Soft neutral blue tint */
+    border-radius: 0 8px 8px 0;
+    font-size: 1.05rem;
+    line-height: 1.6;
 }
 
 .content main blockquote p {
-    margin-bottom: 0.4em;
+    margin-bottom: 0.3em;
     text-align: right;
 }
 
-.content main blockquote p:last-child {
-    margin-bottom: 0;
-}
-
-/* Sidebar Table of Contents RTL Adjustments */
+/* Sidebar Table of Contents */
 .sidebar {
     direction: rtl;
     text-align: right;
@@ -132,40 +125,17 @@ html, body {
 }
 
 .sidebar .sidebar-scrollbox {
-    padding: 1rem 1.25rem;
+    padding: 1rem 1.1rem;
 }
 
 .chapter li a {
-    font-size: 1.05rem;
-    line-height: 1.75;
-    padding: 0.25rem 0.4rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    padding: 0.2rem 0.4rem;
 }
 
-.chapter li.part-title {
-    font-weight: 700;
-    font-size: 1.15rem;
-    margin-top: 1rem;
-}
-
-/* Menu Bar Title */
 .menu-title {
-    font-family: var(--novel-font-serif);
+    font-family: var(--novel-font-sans);
     font-weight: 700;
-    font-size: 1.4rem;
-}
-
-/* Print / Single-page PDF view adjustments */
-@media print {
-    .content main {
-        font-size: 12pt;
-        line-height: 1.9;
-        max-width: 100%;
-    }
-    .novel-title-page, .part-title-page {
-        page-break-after: always;
-        min-height: 80vh;
-    }
-    .content main h1 {
-        page-break-before: always;
-    }
+    font-size: 1.2rem;
 }
