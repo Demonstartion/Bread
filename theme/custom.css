@@ -21,7 +21,7 @@ html, body {
     direction: rtl;
     text-align: justify;
     font-family: var(--novel-font-serif);
-    font-size: 1.35rem;
+    font-size: 1.5rem;
     line-height: 2.05;
     max-width: var(--content-max-width);
     margin: 0 auto;
